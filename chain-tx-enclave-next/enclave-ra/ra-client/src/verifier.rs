@@ -268,7 +268,7 @@ impl ServerCertVerifier for EnclaveCertVerifier {
 
 impl ClientCertVerifier for EnclaveCertVerifier {
     fn client_auth_root_subjects(&self, _sni: Option<&DNSName>) -> Option<DistinguishedNames> {
-        None
+        Some(DistinguishedNames::new())
     }
 
     fn verify_client_cert(
